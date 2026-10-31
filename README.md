@@ -80,7 +80,7 @@ flowchart LR
 - **Guard** on all LLM-written outbound text: deterministic regexes (dosage patterns, medicine-change wording, length) plus a Haiku classifier that **fails closed**.
 - **Chase logic**, nurse tasks with SLA timers, one-click nurse actions (approve suggested, edit and send, resolve, close episode).
 - **Prompt-injection handling**: patient text is wrapped as untrusted data; injection attempts are flagged and routed to a nurse.
-- **Evaluation harness**: a labelled reply set, a keyword-bot baseline, a 100-patient LLM-role-played simulation and a manual-process model (see section 9).
+- **Evaluation harness**: a labelled reply set, a keyword-bot baseline, a 100-patient LLM-role-played simulation and a manual-process model (see section 10).
 - **Audit log** of every action, plus an `llm_calls` table with tokens, latency and cost.
 
 ### Channels (M7 and after)
@@ -121,7 +121,32 @@ If a patient asks something with no approved answer (for example "are there any 
 - **LLM trace** (`ALASALAMA_TRACE=1`): every model call (purpose, model, system prompt, input, output) is appended to `data/logs/llm_trace.jsonl` (gitignored) so you can see exactly what the model saw and produced.
 - **Dashboard** pages: Nurse queue, Doctors, Case (timeline, extracted form with evidence, rule decision, brief), Patient chat.
 
-## 5. What it never does
+## 5. Dashboard tour
+
+The nurse dashboard is a Streamlit app (`make dashboard`, http://localhost:8501). It has five pages: Home, Nurse queue, Doctors, Case and Patient chat. It refreshes itself every few seconds, so new messages, bookings and urgent alerts appear without pressing anything. Every page carries the "Demo with synthetic data, not a medical device" banner.
+
+**Home: the overview**
+- A hero banner with a live clock and date, the Arabic tagline, and one status line. With nothing urgent it reads "No urgent cases right now. The agent is following every discharged patient and will alert you here the moment one needs a nurse." When a red flag is open the banner turns red and pulses, and lists up to three patients as clickable links with a short reason and the time a nurse must respond by.
+- Five headline numbers: patients followed (30), check-ins done, patients who need a nurse, urgent cases and appointments booked.
+- An Activity section with four charts. *Check-ins by day* shows where each scheduled check-in stands (days 1, 3, 7, 14 and 30). *How replies were routed* counts the rules engine's decision for every reply (concern, question, red flag, routine, unclear). *Messages per day* splits outgoing agent messages from incoming patient messages. *Nurse tasks* shows tasks by priority, open versus resolved.
+
+**Nurse queue: only the exceptions**
+- Four counters: check-ins done, urgent, same-day and routine tasks.
+- Below them, either the tasks (urgent first, with SLA countdowns and one-click actions) or, as in the screenshot, "No exceptions. The agent is handling everything." This is the page the product exists to keep empty.
+
+**Case: one patient in full**
+- A patient picker, a status badge (active, template, language) and a plain-language summary of the programme: procedure, check-in days, preferred language and hour, and critical medicines.
+- A green "No open tasks. This case is resolved." banner when nothing is waiting. When tasks are open, a prominent "Mark resolved" button sits here instead.
+- A timeline of every message in the conversation, with the extracted form, the rule decision and its reasons.
+- On the right, the nurse task card. In the screenshot, Task #5 (same-day, resolved) holds a Claude-written nurse brief: what the patient reported, the rule that flagged it (`wound_redness`) and what the nurse should check.
+
+**Doctors: the roster**
+- *All doctors:* seven fictional doctors across obstetrics and gynecology, orthopedics and cardiology, shown as cards with initials, specialty, clinic and floor, working days and hours, and "booked" and "offered" badges. The header counts doctors and booked appointments.
+- *One doctor:* a weekly availability strip with working days highlighted, the list of appointments with their status (Sara, booked, Tue 2026-11-03 16:00), and a day picker with a grid of 30-minute slots from 09:00 to 20:00. Booked slots (16:00 in the screenshot) are greyed out. These are the same slots the agent offers over chat, so a booking made in Telegram shows up here at once.
+
+**Patient chat** (not pictured) lets you type as any patient in Arabic or English and watch the agent read, decide and answer exactly as it would on a real channel.
+
+## 6. What it never does
 
 - Never diagnoses, never changes medication, never gives medical advice that isn't approved or declined by a guarded prompt.
 - Never lets the LLM choose the route. Rules are deterministic and unit-tested.
@@ -131,13 +156,13 @@ If a patient asks something with no approved answer (for example "are there any 
 - Never messages an unmapped patient on an external channel.
 - Treats patient text as untrusted data; instruction-injection attempts are flagged and routed to a nurse.
 
-## 6. Human checkpoints
+## 7. Human checkpoints
 
 - A nurse reviews every red flag, concern, unclear-after-clarification, unanswered question and unreachable patient.
 - The nurse can approve the suggested action, edit and send, mark resolved, or close the episode, in one click.
 - All clinical content (templates, thresholds, approved answers, SLAs, emergency text) is labelled **needs clinician review** and must be signed off before real use.
 
-## 7. Live test findings (Telegram, one patient)
+## 8. Live test findings (Telegram, one patient)
 
 The system was tested live on a phone, with the user typing scenarios one at a time and the results read back from the database. Verified:
 
@@ -154,7 +179,7 @@ The system was tested live on a phone, with the user typing scenarios one at a t
 
 Bugs found live and fixed: an empty doctor opening (token limit too low), the guard correctly blocking a model reply that said "keep taking your medicines" (prompt reworded, **guard not loosened**), duplicate Telegram timeout argument, SQLite lock contention (30 s busy timeout), an Arabic request getting an English clarify (language switch), and tests that had messaged the real chat (tests now scrub all channel env vars).
 
-## 8. Run it
+## 9. Run it
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
@@ -193,7 +218,7 @@ Without an API key the app still runs on template text, but replies cannot be re
 
 Run the full suite safely with `TELEGRAM_BOT_TOKEN=invalid python -m pytest -q`. `tests/conftest.py` also scrubs these, and `test_isolation.py` guards it.
 
-## 9. Evaluation (simulated, 100 synthetic patients, seed 7)
+## 10. Evaluation (simulated, 100 synthetic patients, seed 7)
 
 > **Read this first.** The patients are synthetic and role-played by an LLM from hidden truth cards. The manual process is a *model*. **Every manual-process parameter in `config/baseline.yaml` is currently an unsourced placeholder**, and the nurse review minutes for Ala Salama are demo values. The comparison shows how the agent behaves in simulation. It is not a measured clinical or operational result. These numbers come from a full re-run (2026-10-31) with the current agent: written replies, the check-up decision step and the never-ending conversation.
 
@@ -223,11 +248,11 @@ The labels were written alongside the reader prompt, so the Claude numbers are p
 
 The one missed red flag was a patient who never replies. Three of the four missed concerns were slow responders who answered after the check-in was closed as unreachable. Results are cached on disk, so `make eval` re-runs are free and identical.
 
-## 10. Tests
+## 11. Tests
 
 **147 tests pass** (offline, no key needed): rules, router, tick and chase, guard, doctors and booking (`test_doctors.py`), rescheduling by time and doctor (`test_reschedule.py`), LLM answers (`test_question_answer.py`), language switching (`test_language.py`), pleasantries, focus mode, channel isolation, Telegram and demo-safety checks. One live integration test is deselected by default.
 
-## 11. Known limits (be honest about these)
+## 12. Known limits (be honest about these)
 
 This is an **agentic, production-minded prototype, not an enterprise system.**
 
@@ -240,7 +265,7 @@ This is an **agentic, production-minded prototype, not an enterprise system.**
 - **Not yet exercised live:** a missed-medicine message end to end, reminders and unreachable escalation over a real channel, injection attempts over Telegram, and non-text messages (stickers, voice notes).
 - **Secrets:** keys used during development (Anthropic, Telegram) were exposed in the working environment and must be **rotated** before any sharing.
 
-## 12. Layout
+## 13. Layout
 
 ```
 alasalama/   core package (no UI dependency)
@@ -260,7 +285,7 @@ tests/       pytest (offline; integration marked)
 
 See [DECISIONS.md](DECISIONS.md) for every assumption.
 
-## 13. Change log (what was built, in order)
+## 14. Change log (what was built, in order)
 
 | Stage | What |
 |---|---|
