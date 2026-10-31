@@ -130,9 +130,16 @@ The nurse dashboard is a Streamlit app (`make dashboard`, http://localhost:8501)
 - Five headline numbers: patients followed (30), check-ins done, patients who need a nurse, urgent cases and appointments booked.
 - An Activity section with four charts. *Check-ins by day* shows where each scheduled check-in stands (days 1, 3, 7, 14 and 30). *How replies were routed* counts the rules engine's decision for every reply (concern, question, red flag, routine, unclear). *Messages per day* splits outgoing agent messages from incoming patient messages. *Nurse tasks* shows tasks by priority, open versus resolved.
 
+![Home: calm state](docs/screenshots/home.png)
+![Home: activity charts](docs/screenshots/home-activity.png)
+![Home: urgent alert](docs/screenshots/home-urgent.png)
+
 **Nurse queue: only the exceptions**
 - Four counters: check-ins done, urgent, same-day and routine tasks.
 - Below them, either the tasks (urgent first, with SLA countdowns and one-click actions) or, as in the screenshot, "No exceptions. The agent is handling everything." This is the page the product exists to keep empty.
+
+![Nurse queue: no exceptions](docs/screenshots/nurse-queue.png)
+![Nurse queue: one urgent task](docs/screenshots/nurse-queue-urgent.png)
 
 **Case: one patient in full**
 - A patient picker, a status badge (active, template, language) and a plain-language summary of the programme: procedure, check-in days, preferred language and hour, and critical medicines.
@@ -140,9 +147,15 @@ The nurse dashboard is a Streamlit app (`make dashboard`, http://localhost:8501)
 - A timeline of every message in the conversation, with the extracted form, the rule decision and its reasons.
 - On the right, the nurse task card. In the screenshot, Task #5 (same-day, resolved) holds a Claude-written nurse brief: what the patient reported, the rule that flagged it (`wound_redness`) and what the nurse should check.
 
+![Case: resolved](docs/screenshots/case.png)
+![Case: open task with Mark resolved](docs/screenshots/case-urgent.png)
+
 **Doctors: the roster**
 - *All doctors:* seven fictional doctors across obstetrics and gynecology, orthopedics and cardiology, shown as cards with initials, specialty, clinic and floor, working days and hours, and "booked" and "offered" badges. The header counts doctors and booked appointments.
 - *One doctor:* a weekly availability strip with working days highlighted, the list of appointments with their status (Sara, booked, Tue 2026-11-03 16:00), and a day picker with a grid of 30-minute slots from 09:00 to 20:00. Booked slots (16:00 in the screenshot) are greyed out. These are the same slots the agent offers over chat, so a booking made in Telegram shows up here at once.
+
+![Doctors: roster](docs/screenshots/doctors-list.png)
+![Doctors: one doctor with a booked appointment](docs/screenshots/doctors-detail.png)
 
 **Patient chat** (not pictured) lets you type as any patient in Arabic or English and watch the agent read, decide and answer exactly as it would on a real channel.
 
