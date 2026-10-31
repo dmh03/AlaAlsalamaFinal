@@ -1,0 +1,602 @@
+[
+  {
+    "name": "عبدالله",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 10,
+    "demo": true,
+    "meds": [
+      [
+        "إبرة السيولة",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000000",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Sara",
+    "language": "en",
+    "template": "c_section",
+    "hour": 11,
+    "demo": true,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000001",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "فهد",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 9,
+    "demo": true,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000002",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "نورة",
+    "language": "ar",
+    "template": "c_section",
+    "hour": 12,
+    "demo": true,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000003",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "محمد",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 10,
+    "demo": true,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000004",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Khalid",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 16,
+    "demo": true,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000005",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "العنود",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 20,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000006",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Faisal",
+    "language": "en",
+    "template": "heart_failure",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000007",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Rakan",
+    "language": "en",
+    "template": "knee_replacement",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000008",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "مها",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 13,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000009",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "لطيفة",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 10,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000010",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "خالد",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000011",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Hessa",
+    "language": "en",
+    "template": "knee_replacement",
+    "hour": 11,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000012",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Dana",
+    "language": "en",
+    "template": "c_section",
+    "hour": 10,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000013",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "سلطان",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 9,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000014",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Maha",
+    "language": "en",
+    "template": "heart_failure",
+    "hour": 11,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000015",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "سارة",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 20,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000016",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Omar",
+    "language": "en",
+    "template": "knee_replacement",
+    "hour": 9,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000017",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "بندر",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000018",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "سلمان",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 10,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000019",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "منيرة",
+    "language": "ar",
+    "template": "c_section",
+    "hour": 9,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000020",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "الجوهرة",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 20,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000021",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "هند",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000022",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Lina",
+    "language": "en",
+    "template": "knee_replacement",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000023",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "ماجد",
+    "language": "ar",
+    "template": "knee_replacement",
+    "hour": 13,
+    "demo": false,
+    "meds": [
+      [
+        "Enoxaparin injection",
+        true
+      ],
+      [
+        "Paracetamol",
+        false
+      ]
+    ],
+    "phone": "+966500000024",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "ريم",
+    "language": "ar",
+    "template": "heart_failure",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Furosemide",
+        true
+      ],
+      [
+        "Bisoprolol",
+        true
+      ]
+    ],
+    "phone": "+966500000025",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "Yazan",
+    "language": "en",
+    "template": "c_section",
+    "hour": 11,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000026",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "يوسف",
+    "language": "ar",
+    "template": "c_section",
+    "hour": 16,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000027",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "تركي",
+    "language": "ar",
+    "template": "c_section",
+    "hour": 11,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000028",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  },
+  {
+    "name": "ناصر",
+    "language": "ar",
+    "template": "c_section",
+    "hour": 10,
+    "demo": false,
+    "meds": [
+      [
+        "Ibuprofen",
+        false
+      ],
+      [
+        "Iron supplement",
+        false
+      ]
+    ],
+    "phone": "+966500000029",
+    "consent": true,
+    "discharge_date": "2026-11-01"
+  }
+]

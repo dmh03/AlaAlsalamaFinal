@@ -1,0 +1,47 @@
+# DEMO CONTENT — needs clinician review. Based on general patient-education themes.
+name: c_section
+procedure_codes: [DEMO-CS-01]
+checkin_days: [1, 3, 7, 14, 30]
+ask_pain: true
+doctor_specialty: obgyn
+questions:
+  ar:
+    - "كيف مستوى الألم من 0 إلى 10؟"
+    - "كيف الجرح؟ فيه احمرار أو إفرازات؟ وكيف النزيف؟"
+    - "هل تاخذين أدويتك حسب الموعد؟"
+  en:
+    - "How is your pain from 0 to 10?"
+    - "How is the wound? Any redness or discharge? How is the bleeding?"
+    - "Are you taking your medicines as scheduled?"
+red_flag_symptoms: [heavy_bleeding, chest_pain, breathing_difficulty]
+concern_symptoms: [fever, wound_redness, wound_discharge, wound_opening, calf_pain_or_swelling, severe_headache, dizziness_or_fainting]
+critical_medicines: []
+qa:
+  - id: showering
+    q_ar: "متى أقدر أتروش؟"
+    q_en: "When can I shower?"
+    a_ar: "عادةً تقدرين تتروشين وتخلين الماء ينزل على الجرح بلطف ثم تنشفينه بالتربيت، حسب تعليمات الخروج. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "You can usually shower and let water run gently over the wound, then pat it dry, as per your discharge instructions. (Demo content, needs clinician review)"
+  - id: walking
+    q_ar: "هل أقدر أمشي؟"
+    q_en: "Can I walk?"
+    a_ar: "المشي الخفيف مفيد وتزيدينه تدريجياً. تجنبي رفع أشياء ثقيلة. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Light walking is helpful; increase gradually. Avoid lifting heavy things. (Demo content, needs clinician review)"
+  - id: wound_care
+    q_ar: "كيف أعتني بالجرح؟"
+    q_en: "How do I care for the wound?"
+    a_ar: "خلي الجرح نظيف وجاف، ولبسي ملابس مريحة وقطنية. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Keep the wound clean and dry and wear loose cotton clothing. (Demo content, needs clinician review)"
+  - id: driving
+    q_ar: "متى أقدر أسوق؟"
+    q_en: "When can I drive?"
+    a_ar: "هذا يعتمد على تعافيك، وبنخلي الممرضة أو الطبيب يؤكدون لك. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "This depends on your recovery; a nurse or doctor will confirm. (Demo content, needs clinician review)"
+  - id: when_to_call
+    q_ar: "متى أتصل بالمستشفى؟"
+    q_en: "When should I call?"
+    a_ar: "تواصلي معنا إذا زاد الألم أو احمر الجرح أو ارتفعت الحرارة. وللطوارئ اتصلي 997. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Contact us if pain increases, the wound turns red, or you have a fever. For emergencies call 997. (Demo content, needs clinician review)"
+emergency:
+  ar: "إذا عندك ألم في الصدر أو صعوبة في التنفس أو نزيف شديد، اتصلي بـ 997 الحين أو روحي لأقرب طوارئ. نبهنا الممرضة المناوبة."
+  en: "If you have chest pain, trouble breathing or heavy bleeding, call 997 now or go to the nearest emergency department. We have alerted the on-call nurse."

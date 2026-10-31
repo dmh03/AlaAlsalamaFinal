@@ -1,0 +1,8 @@
+# APPROXIMATE daily prayer times for Riyadh (local time). Not authoritative; demo only.
+margin_minutes: 20
+times:
+  fajr: "04:45"
+  dhuhr: "11:45"
+  asr: "15:10"
+  maghrib: "17:55"
+  isha: "19:25"

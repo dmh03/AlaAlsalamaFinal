@@ -1,0 +1,25 @@
+[project]
+name = "alasalama"
+version = "0.1.0"
+description = "Ala Salama (على السلامة): autonomous post-discharge follow-up agent (demo, synthetic data)"
+requires-python = ">=3.12"
+dependencies = [
+  "anthropic>=0.40,<1",
+  "sqlmodel>=0.0.22,<0.1",
+  "pydantic>=2.8,<3",
+  "pyyaml>=6,<7",
+  "streamlit>=1.38,<2",
+  "pandas>=2.2,<3",
+  "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+webhooks = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "twilio>=9,<10", "python-multipart>=0.0.9", "httpx>=0.27,<1"]
+
+[tool.setuptools]
+packages = ["alasalama"]
+
+[tool.pytest.ini_options]
+markers = ["integration: needs ANTHROPIC_API_KEY"]
+addopts = "-m 'not integration'"

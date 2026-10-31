@@ -1,0 +1,8 @@
+# Check https://platform.claude.com/docs/en/about-claude/pricing before relying on these.
+# USD per million tokens.
+claude-sonnet-5-5:
+  input: 2.0
+  output: 10.0
+claude-haiku-5-5:
+  input: 0.10
+  output: 0.50

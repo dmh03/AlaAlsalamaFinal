@@ -1,0 +1,29 @@
+{
+  "keyword_bot": {
+    "n": 52,
+    "red_flag_recall": 0.6666666666666666,
+    "concern_recall": 0.9130434782608695,
+    "false_alarm_rate": 0.0,
+    "pain_accuracy": 0.9423076923076923,
+    "route_accuracy": 0.8653846153846154,
+    "missed_red_flags": [
+      "r08",
+      "r33",
+      "r34"
+    ],
+    "reader_failures": []
+  },
+  "reviewed": false,
+  "note": "Labels are unreviewed; a human must check the Arabic and the expected routes.",
+  "claude_reader": {
+    "n": 52,
+    "red_flag_recall": 1.0,
+    "concern_recall": 1.0,
+    "false_alarm_rate": 0.0,
+    "pain_accuracy": 1.0,
+    "route_accuracy": 1.0,
+    "missed_red_flags": [],
+    "reader_failures": []
+  },
+  "claude_misroutes": []
+}

@@ -1,0 +1,217 @@
+{
+  "generated_at": "2026-10-31T16:27:45",
+  "patients": 100,
+  "seed": 7,
+  "synthetic_data": true,
+  "ala_salama": {
+    "patients": 100,
+    "checkins": 500,
+    "reached_within_48h": 0.9,
+    "red_flags_total": 19,
+    "red_flags_caught_48h": 18,
+    "red_flag_median_alert_minutes": 68.5,
+    "concerns_total": 43,
+    "concerns_caught_48h": 39,
+    "false_alarms": 0,
+    "calm_checkins_reached": 393,
+    "false_alarm_rate": 0.0,
+    "nurse_tasks": 212,
+    "nurse_minutes_per_patient": 9.33,
+    "unreachable_tasks": 50,
+    "llm_cost_per_patient_usd": 0.057,
+    "llm_calls": 3029,
+    "llm_failed_calls": 46,
+    "llm_cost_by_purpose": {
+      "plan_summary": {
+        "calls": 100,
+        "usd": 0.1547
+      },
+      "checkin_message": {
+        "calls": 500,
+        "usd": 1.2824
+      },
+      "guard": {
+        "calls": 941,
+        "usd": 0.0895
+      },
+      "reader": {
+        "calls": 533,
+        "usd": 0.2188
+      },
+      "reply_clarify": {
+        "calls": 83,
+        "usd": 0.5107
+      },
+      "appointment_triage": {
+        "calls": 311,
+        "usd": 1.1137
+      },
+      "reply_checkup_ask": {
+        "calls": 72,
+        "usd": 0.4034
+      },
+      "nurse_brief": {
+        "calls": 162,
+        "usd": 0.4577
+      },
+      "reply_mild": {
+        "calls": 39,
+        "usd": 0.2569
+      },
+      "match_questions": {
+        "calls": 38,
+        "usd": 0.0623
+      },
+      "reply_positive": {
+        "calls": 235,
+        "usd": 1.059
+      },
+      "answer_question": {
+        "calls": 11,
+        "usd": 0.0692
+      },
+      "doctor_offer": {
+        "calls": 4,
+        "usd": 0.0183
+      }
+    },
+    "episodes_closed": 0
+  },
+  "manual_baseline": {
+    "patients": 100,
+    "checkins": 500,
+    "reached_within_48h": 0.548,
+    "red_flags_total": 19,
+    "red_flags_caught_48h": 10,
+    "red_flag_median_alert_minutes": 1545.0,
+    "concerns_total": 43,
+    "concerns_caught_48h": 28,
+    "false_alarms": null,
+    "false_alarm_rate": null,
+    "calls_made": 771,
+    "nurse_minutes_per_patient": 77.1,
+    "llm_cost_per_patient_usd": 0.0
+  },
+  "understanding": {
+    "keyword_bot": {
+      "n": 52,
+      "red_flag_recall": 0.6666666666666666,
+      "concern_recall": 0.9130434782608695,
+      "false_alarm_rate": 0.0,
+      "pain_accuracy": 0.9423076923076923,
+      "route_accuracy": 0.8653846153846154,
+      "missed_red_flags": [
+        "r08",
+        "r33",
+        "r34"
+      ],
+      "reader_failures": []
+    },
+    "reviewed": false,
+    "note": "Labels are unreviewed; a human must check the Arabic and the expected routes.",
+    "claude_reader": {
+      "n": 52,
+      "red_flag_recall": 1.0,
+      "concern_recall": 1.0,
+      "false_alarm_rate": 0.0,
+      "pain_accuracy": 1.0,
+      "route_accuracy": 1.0,
+      "missed_red_flags": [],
+      "reader_failures": []
+    },
+    "claude_misroutes": []
+  },
+  "assumptions": [
+    {
+      "name": "manual: nurses_available",
+      "value": 2,
+      "source": "ASSUMPTION — replace with a published figure",
+      "placeholder": true
+    },
+    {
+      "name": "manual: calls_per_nurse_per_day",
+      "value": 25,
+      "source": "ASSUMPTION — replace with a published figure",
+      "placeholder": true
+    },
+    {
+      "name": "manual: minutes_per_call",
+      "value": 10,
+      "source": "ASSUMPTION — replace with a published figure",
+      "placeholder": true
+    },
+    {
+      "name": "manual: reach_rate_per_attempt",
+      "value": 0.5,
+      "source": "ASSUMPTION — replace with a published figure",
+      "placeholder": true
+    },
+    {
+      "name": "manual: max_call_attempts",
+      "value": 2,
+      "source": "ASSUMPTION — replace with a published figure",
+      "placeholder": true
+    },
+    {
+      "name": "Ala Salama nurse review minutes: red_flag",
+      "value": 10,
+      "source": "demo value, needs clinician/operations sign-off",
+      "placeholder": true
+    },
+    {
+      "name": "Ala Salama nurse review minutes: concern",
+      "value": 6,
+      "source": "demo value, needs clinician/operations sign-off",
+      "placeholder": true
+    },
+    {
+      "name": "Ala Salama nurse review minutes: routine",
+      "value": 3,
+      "source": "demo value, needs clinician/operations sign-off",
+      "placeholder": true
+    },
+    {
+      "name": "Ala Salama nurse review minutes: unreachable",
+      "value": 3,
+      "source": "demo value, needs clinician/operations sign-off",
+      "placeholder": true
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "Patients are simulated by Claude Sonnet from hidden truth cards; they are not real people.",
+      "placeholder": false
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "Ground-truth severity uses the same demo thresholds as the rules engine (needs clinician sign-off).",
+      "placeholder": false
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "In the manual model, a reached patient is always judged correctly by the nurse (optimistic for manual).",
+      "placeholder": false
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "Manual false alarms are not modelled.",
+      "placeholder": false
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "Manual: patients marked 'never responsive' are never reached; others are reached with the configured rate.",
+      "placeholder": false
+    },
+    {
+      "name": "modelling assumption",
+      "value": null,
+      "source": "Time to alert is measured from the check-in due time for both processes.",
+      "placeholder": false
+    }
+  ],
+  "has_placeholder_assumptions": true
+}

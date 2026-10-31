@@ -1,0 +1,42 @@
+# DEMO CONTENT — needs clinician review. Based on general patient-education themes.
+name: heart_failure
+procedure_codes: [DEMO-HF-01]
+checkin_days: [1, 3, 7, 14, 30]
+ask_pain: false
+doctor_specialty: cardiology
+questions:
+  ar:
+    - "كيف تنفسك اليوم؟ هل تتعب إذا انسدحت؟"
+    - "هل فيه تورم في رجولك أو زيادة في الوزن؟"
+    - "هل أخذت أدويتك حسب الموعد؟"
+  en:
+    - "How is your breathing today? Any trouble when lying down?"
+    - "Any swelling in your legs or sudden weight gain?"
+    - "Have you taken your medicines as scheduled?"
+red_flag_symptoms: [chest_pain, breathing_difficulty, breathless_lying_down, confusion]
+concern_symptoms: [leg_swelling, rapid_weight_gain, dizziness_or_fainting, vomiting, fever]
+critical_medicines: ["Furosemide", "Bisoprolol"]
+qa:
+  - id: weighing
+    q_ar: "كم مرة أوزن نفسي؟"
+    q_en: "How often should I weigh myself?"
+    a_ar: "وزن نفسك كل صباح بعد الحمام وسجل الرقم، وتواصل معنا إذا زاد الوزن بسرعة. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Weigh yourself each morning after using the toilet and note it; contact us if weight rises quickly. (Demo content, needs clinician review)"
+  - id: salt
+    q_ar: "هل أقلل الملح؟"
+    q_en: "Should I reduce salt?"
+    a_ar: "قلل الملح حسب تعليمات الخروج المكتوبة. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Limit salt as per your written discharge instructions. (Demo content, needs clinician review)"
+  - id: walking
+    q_ar: "هل أقدر أمشي؟"
+    q_en: "Can I walk?"
+    a_ar: "المشي الخفيف مناسب عادةً، وتوقف وارتاح إذا حسيت بتعب. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Light walking is usually fine; stop and rest if you feel tired. (Demo content, needs clinician review)"
+  - id: when_to_call
+    q_ar: "متى أتصل بالمستشفى؟"
+    q_en: "When should I call?"
+    a_ar: "تواصل معنا إذا زاد التورم أو ضاق نفسك أو زاد وزنك بسرعة. وللطوارئ اتصل 997. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Contact us if swelling increases, breathing gets harder, or weight rises quickly. For emergencies call 997. (Demo content, needs clinician review)"
+emergency:
+  ar: "إذا عندك ألم في الصدر أو صعوبة في التنفس أو نزيف شديد، اتصل بـ 997 الحين أو روح لأقرب طوارئ. نبهنا الممرضة المناوبة."
+  en: "If you have chest pain, trouble breathing or heavy bleeding, call 997 now or go to the nearest emergency department. We have alerted the on-call nurse."

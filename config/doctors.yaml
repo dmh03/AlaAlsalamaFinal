@@ -1,0 +1,68 @@
+# FICTIONAL demo roster. These are not real people. In production this is replaced by the hospital's roster and booking system.
+# days: sun mon tue wed thu fri sat    hours: [open, close] local clinic hours (24h). Every slot_minutes slot inside the window is
+# bookable until a patient books it.
+slot_minutes: 30
+doctors:
+  - name_en: "Dr. Layla Al-Harbi"
+    name_ar: "د. ليلى الحربي"
+    specialty: obgyn
+    specialty_en: "Obstetrics & Gynecology"
+    specialty_ar: "النساء والولادة"
+    clinic_en: "Women's Health Clinic, 2nd floor"
+    clinic_ar: "عيادة صحة المرأة، الدور الثاني"
+    days: [sun, tue, thu]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Noura Al-Qahtani"
+    name_ar: "د. نورة القحطاني"
+    specialty: obgyn
+    specialty_en: "Obstetrics & Gynecology"
+    specialty_ar: "النساء والولادة"
+    clinic_en: "Women's Health Clinic, 2nd floor"
+    clinic_ar: "عيادة صحة المرأة، الدور الثاني"
+    days: [mon, wed]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Omar Al-Shehri"
+    name_ar: "د. عمر الشهري"
+    specialty: orthopedics
+    specialty_en: "Orthopedics"
+    specialty_ar: "العظام"
+    clinic_en: "Orthopedic Clinic, 1st floor"
+    clinic_ar: "عيادة العظام، الدور الأول"
+    days: [sun, mon, wed]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Hessa Al-Mutairi"
+    name_ar: "د. حصة المطيري"
+    specialty: orthopedics
+    specialty_en: "Orthopedics"
+    specialty_ar: "العظام"
+    clinic_en: "Orthopedic Clinic, 1st floor"
+    clinic_ar: "عيادة العظام، الدور الأول"
+    days: [tue, thu]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Faisal Al-Dosari"
+    name_ar: "د. فيصل الدوسري"
+    specialty: cardiology
+    specialty_en: "Cardiology"
+    specialty_ar: "القلب"
+    clinic_en: "Heart Clinic, 3rd floor"
+    clinic_ar: "عيادة القلب، الدور الثالث"
+    days: [sun, tue, wed]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Reem Al-Otaibi"
+    name_ar: "د. ريم العتيبي"
+    specialty: cardiology
+    specialty_en: "Cardiology"
+    specialty_ar: "القلب"
+    clinic_en: "Heart Clinic, 3rd floor"
+    clinic_ar: "عيادة القلب، الدور الثالث"
+    days: [mon, thu]
+    hours: ["09:00", "20:00"]
+  - name_en: "Dr. Khalid Al-Ghamdi"
+    name_ar: "د. خالد الغامدي"
+    specialty: general
+    specialty_en: "General medicine"
+    specialty_ar: "الطب العام"
+    clinic_en: "Follow-up Clinic, ground floor"
+    clinic_ar: "عيادة المتابعة، الدور الأرضي"
+    days: [sun, mon, tue, wed, thu]
+    hours: ["09:00", "20:00"]

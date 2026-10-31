@@ -1,0 +1,42 @@
+# DEMO CONTENT — needs clinician review. Based on general patient-education themes.
+name: knee_replacement
+procedure_codes: [DEMO-KNEE-01]
+checkin_days: [1, 3, 7, 14, 30]
+ask_pain: true
+doctor_specialty: orthopedics
+questions:
+  ar:
+    - "كيف مستوى الألم من 0 إلى 10؟"
+    - "كيف الجرح؟ فيه احمرار أو إفرازات؟"
+    - "هل أخذت أدويتك وإبرة السيولة حسب الموعد؟"
+  en:
+    - "How is your pain from 0 to 10?"
+    - "How does the wound look? Any redness or discharge?"
+    - "Have you taken your medicines and blood-thinner injection as scheduled?"
+red_flag_symptoms: [chest_pain, breathing_difficulty, heavy_bleeding]
+concern_symptoms: [fever, wound_redness, wound_discharge, wound_opening, calf_pain_or_swelling, leg_swelling]
+critical_medicines: ["Enoxaparin injection", "إبرة السيولة"]
+qa:
+  - id: showering
+    q_ar: "متى أقدر أتروش؟"
+    q_en: "When can I shower?"
+    a_ar: "تقدر تتروش حسب تعليمات الخروج المكتوبة لك مع تغطية الجرح. إذا ما كنت متأكد، بنخلي الممرضة تتواصل معك. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "You may shower as described in your written discharge instructions, keeping the wound covered. If unsure, a nurse will contact you. (Demo content, needs clinician review)"
+  - id: walking
+    q_ar: "هل أقدر أمشي؟"
+    q_en: "Can I walk?"
+    a_ar: "المشي القصير المتكرر حسب تعليمات العلاج الطبيعي مشجع. لا تحمّل على الركبة أكثر من المسموح. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Short, frequent walks as per your physiotherapy instructions are encouraged. (Demo content, needs clinician review)"
+  - id: wound_care
+    q_ar: "كيف أعتني بالجرح؟"
+    q_en: "How do I care for the wound?"
+    a_ar: "حافظ على الجرح نظيف وجاف ولا تلمسه بيدين غير نظيفة. اتبع ورقة تعليمات الخروج. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Keep the wound clean and dry and avoid touching it with unwashed hands. Follow your discharge sheet. (Demo content, needs clinician review)"
+  - id: when_to_call
+    q_ar: "متى أتصل بالمستشفى؟"
+    q_en: "When should I call?"
+    a_ar: "تواصل معنا إذا زاد الألم، أو احمر الجرح، أو ارتفعت الحرارة. وللطوارئ اتصل 997. (محتوى تجريبي يحتاج مراجعة طبية)"
+    a_en: "Contact us if pain increases, the wound turns red, or you have a fever. For emergencies call 997. (Demo content, needs clinician review)"
+emergency:
+  ar: "إذا عندك ألم في الصدر أو صعوبة في التنفس أو نزيف شديد، اتصل بـ 997 الحين أو روح لأقرب طوارئ. نبهنا الممرضة المناوبة."
+  en: "If you have chest pain, trouble breathing or heavy bleeding, call 997 now or go to the nearest emergency department. We have alerted the on-call nurse."

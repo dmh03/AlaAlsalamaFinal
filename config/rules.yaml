@@ -1,0 +1,28 @@
+# demo values — needs clinician sign-off
+precedence: [red_flag, concern, unclear, question, routine]
+concern:
+  pain_score_min: 7            # demo values — needs clinician sign-off
+  symptoms_worsening: true
+  critical_med_missed: true
+  wants_human: true
+  suspicious_input: true
+unclear:
+  confidence_below: 0.7        # demo values — needs clinician sign-off
+  missing_pain_when_asked: true
+episode:
+  auto_close: false   # stay open after the last check-in so every later message still reaches the agent; only a nurse closes
+sla_minutes:
+  red_flag: 15                 # demo values — needs clinician sign-off
+  concern: 240
+  routine: 1440
+chase:
+  reply_wait_hours: 6          # demo values — needs clinician sign-off
+  max_attempts: 3
+  second_reminder_shift_hours: 4
+guard:
+  max_length: 600
+nurse_review_minutes:
+  red_flag: 10
+  concern: 6
+  routine: 3
+  unreachable: 3

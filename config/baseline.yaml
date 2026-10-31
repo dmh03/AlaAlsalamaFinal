@@ -1,0 +1,16 @@
+# Manual follow-up process model. Every value needs a source.
+nurses_available:
+  value: 2
+  source: "ASSUMPTION — replace with a published figure"
+calls_per_nurse_per_day:
+  value: 25
+  source: "ASSUMPTION — replace with a published figure"
+minutes_per_call:
+  value: 10
+  source: "ASSUMPTION — replace with a published figure"
+reach_rate_per_attempt:
+  value: 0.5
+  source: "ASSUMPTION — replace with a published figure"
+max_call_attempts:
+  value: 2
+  source: "ASSUMPTION — replace with a published figure"
