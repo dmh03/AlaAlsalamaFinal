@@ -1,5 +1,7 @@
 # Ala Salama (على السلامة)
 
+live model testing video: https://youtu.be/ayMpHhk-6OY
+
 **Built for the HUMAIN Hackathon, solving Challenge 3: Automation for Enterprise.**
 
 > متابعتك ما تنتهي عند باب المستشفى — *your care doesn't end at the hospital door.*
