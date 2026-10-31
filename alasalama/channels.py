@@ -32,14 +32,6 @@ class WebChatChannel:
 
 def get_channel() -> WebChatChannel:
     which = os.environ.get("ALASALAMA_CHANNEL", "webchat").lower()
-    if which == "twilio":
-        from .twilio_channel import TwilioWhatsAppChannel
-
-        return TwilioWhatsAppChannel()
-    if which == "meta":
-        from .meta_channel import MetaWhatsAppChannel
-
-        return MetaWhatsAppChannel()
     if which == "telegram":
         from .telegram_channel import TelegramChannel
 

@@ -12,7 +12,7 @@ The name comes from "الحمد لله على السلامة", what Saudi famili
 
 Ala Salama is an **agentic post-discharge follow-up system**. It owns each discharged patient's 30-day follow-up end to end: it plans the schedule, messages the patient in Saudi Arabic or English, reads the reply, decides what it means with deterministic clinical rules, acts, chases people who don't answer, and brings a nurse only the exceptions. It can also offer and book a doctor appointment when a patient reports a concern.
 
-It runs on a real messaging channel (**Telegram, verified live on a phone**), with web chat and optional WhatsApp channels, and a Streamlit dashboard for nurses.
+It runs on a real messaging channel (**Telegram, verified live on a phone**), with a web chat page for demos and a Streamlit dashboard for nurses.
 
 **Design principle:** the LLM *reads and writes*, but never *decides*. Routing, escalation, emergencies and timing are deterministic, unit-tested code. Everything the LLM writes passes a guard before a patient sees it, and every step is audited.
 
@@ -47,7 +47,7 @@ flowchart LR
     P --> T{{tick on Clock}}
     T -->|due| C[Check-in message<br/>Sonnet]
     C --> G1[Guard]
-    G1 --> CH[(Channel<br/>Telegram / WhatsApp / web)]
+    G1 --> CH[(Channel<br/>Telegram / web)]
     CH <--> PT((Patient))
     PT -->|reply| LS[Language switch<br/>deterministic]
     LS --> OR[Offer reply?<br/>number / decline]
@@ -86,11 +86,8 @@ flowchart LR
 |---|---|
 | `webchat` (default) | Works; the dashboard's Patient chat page. Nothing leaves the machine. |
 | `telegram` | **Works live.** Long-polling listener (`scripts/telegram_poll.py`), persisted offset so no message is processed twice, only mapped patients are ever messaged. |
-| `twilio` (WhatsApp Sandbox) | Built; the free sandbox only accepts template sends outside a 24 h window, so it was not used for the live test. |
-| `meta` (WhatsApp Cloud API) | Built (`/webhooks/meta`, signature-checked); test message was accepted by Meta but not delivered. Left in as optional. |
-| Voice (Twilio Voice, Voximplant, Bland.ai) | Tried and **dropped**: Bland blocks +966 numbers on the account. |
 
-Safety on every external channel: a patient is only messaged externally if explicitly mapped (`ALASALAMA_TELEGRAM_MAP`, `ALASALAMA_PHONE_MAP`). The 30 seed patients carry fake numbers and stay in web chat.
+Safety on every external channel: a patient is only messaged externally if explicitly mapped (`ALASALAMA_TELEGRAM_MAP`). The 30 seed patients carry fake numbers and stay in web chat.
 
 ### Doctor appointments (new)
 When the rules decide **concern**, the patient is not just told "a nurse will contact you". They get:
@@ -185,14 +182,14 @@ Without an API key the app still runs on template text, but replies cannot be re
 | Variable | Purpose |
 |---|---|
 | `ANTHROPIC_API_KEY` | Claude access |
-| `ALASALAMA_CHANNEL` | `webchat` (default), `telegram`, `twilio`, `meta` |
-| `ALASALAMA_TELEGRAM_MAP`, `ALASALAMA_PHONE_MAP` | Which demo patients map to a real chat or number |
+| `ALASALAMA_CHANNEL` | `webchat` (default) or `telegram` |
+| `ALASALAMA_TELEGRAM_MAP` | Which demo patient maps to a real Telegram chat |
 | `ALASALAMA_ONLY_PATIENTS` | Focus mode: only these patients are processed |
 | `ALASALAMA_TRACE` | `1` to write the LLM trace |
 | `ALASALAMA_DB`, `ALASALAMA_NO_LLM` | DB path override; run without any model calls |
-| `TELEGRAM_BOT_TOKEN`; `TWILIO_*`; `META_*` | Channel credentials |
+| `TELEGRAM_BOT_TOKEN` | Telegram bot credential |
 
-Run the full suite safely with `TELEGRAM_BOT_TOKEN=invalid TWILIO_AUTH_TOKEN=invalid META_WA_TOKEN=invalid python -m pytest -q`. `tests/conftest.py` also scrubs these, and `test_isolation.py` guards it.
+Run the full suite safely with `TELEGRAM_BOT_TOKEN=invalid python -m pytest -q`. `tests/conftest.py` also scrubs these, and `test_isolation.py` guards it.
 
 ## 9. Evaluation (simulated, 100 synthetic patients, seed 7)
 
@@ -226,7 +223,7 @@ The one missed red flag was a patient who never replies. Three of the four misse
 
 ## 10. Tests
 
-**156 tests pass** (offline, no key needed): rules, router, tick and chase, guard, doctors and booking (`test_doctors.py`), rescheduling by time and doctor (`test_reschedule.py`), LLM answers (`test_question_answer.py`), language switching (`test_language.py`), pleasantries, focus mode, channel isolation, Telegram, Meta, Twilio and demo-safety checks. One live integration test is deselected by default.
+**147 tests pass** (offline, no key needed): rules, router, tick and chase, guard, doctors and booking (`test_doctors.py`), rescheduling by time and doctor (`test_reschedule.py`), LLM answers (`test_question_answer.py`), language switching (`test_language.py`), pleasantries, focus mode, channel isolation, Telegram and demo-safety checks. One live integration test is deselected by default.
 
 ## 11. Known limits (be honest about these)
 
@@ -239,7 +236,7 @@ This is an **agentic, production-minded prototype, not an enterprise system.**
 - **Evaluation:** the manual-baseline figures are placeholders; the labelled set was written with the reader prompt and has not been human-reviewed; patients in the simulation are LLM role-play.
 - **Language:** switching is deterministic and covers Arabic and English only. A greeting sent right after an emergency message gets a clarify rather than a friendly reply (deliberate: no cheerful reply after a 997 message).
 - **Not yet exercised live:** a missed-medicine message end to end, reminders and unreachable escalation over a real channel, injection attempts over Telegram, and non-text messages (stickers, voice notes).
-- **Secrets:** keys used during development (Anthropic, Twilio, Meta, Telegram) were exposed in the working environment and must be **rotated** before any sharing.
+- **Secrets:** keys used during development (Anthropic, Telegram) were exposed in the working environment and must be **rotated** before any sharing.
 
 ## 12. Layout
 
@@ -250,17 +247,16 @@ alasalama/   core package (no UI dependency)
   guard, outbound            outbound safety gate
   chase, tasks, nurse        reminders, nurse tasks and actions
   doctors, textnorm          appointment offers/booking, shared Arabic/English text normalisation
-  channels, telegram_channel, meta_channel, twilio_channel
+  channels, telegram_channel
   llm, prompts/              model wrapper (cache, trace, cost log) and prompt files
 config/      rules.yaml, doctors.yaml, templates/*.yaml, prayer_windows.yaml, baseline.yaml, pricing.yaml
 dashboard/   Streamlit app and pages
-webhooks/    FastAPI app for Meta and Twilio (optional)
-scripts/     telegram_poll.py, rehearse_demo.py
+scripts/     telegram_poll.py, live_setup.py
 eval/        labelled replies, baseline bot, simulator, manual baseline
 tests/       pytest (offline; integration marked)
 ```
 
-See [DECISIONS.md](DECISIONS.md) for every assumption and [DEMO.md](DEMO.md) for a 3-minute demo script.
+See [DECISIONS.md](DECISIONS.md) for every assumption.
 
 ## 13. Change log (what was built, in order)
 
@@ -270,8 +266,8 @@ See [DECISIONS.md](DECISIONS.md) for every assumption and [DEMO.md](DEMO.md) for
 | M3 to M4 | Reader (structured output), router, guard, chase and unreachable logic, nurse actions |
 | M5 | Streamlit dashboard: queue, case, chat, control panel, audit |
 | M6 | Evaluation harness: labelled set, keyword baseline, 100-patient simulation, manual-process model |
-| M7 | Optional WhatsApp channel (Twilio Sandbox) with signature checks and phone mapping |
-| After M7 | Meta WhatsApp Cloud API channel; **Telegram channel (live)**; single-patient focus mode; SQLite busy timeout; listener offset persistence; test isolation from real channels |
+| M7 | Telegram channel (live) with chat-id mapping |
+| After M7 | Single-patient focus mode; SQLite busy timeout; listener offset persistence; test isolation from real channels |
 | Conversation | Pleasantry acknowledgments; opt-in LLM trace |
 | Doctors | Dummy doctor database, appointment offers, booking by number, rescheduling by time of day and doctor, Doctors page |
 | Answers | Guarded LLM-written answers for unmatched questions, with fixed fallback |

@@ -1,6 +1,6 @@
 """Optional Telegram channel (Bot API). Turned on with ALASALAMA_CHANNEL=telegram.
 
-Safety: same rule as the WhatsApp channels. A patient is only ever messaged if explicitly mapped to a Telegram chat id in
+Safety: a patient is only ever messaged if explicitly mapped to a Telegram chat id in
 ALASALAMA_TELEGRAM_MAP (e.g. "Sara=123456789;Khalid=987654321"). Seed patients are never contacted. Keep the bot token
 and chat ids in your local .env only; never commit them.
 """

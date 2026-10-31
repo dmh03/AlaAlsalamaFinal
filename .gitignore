@@ -8,7 +8,5 @@ data/cache/
 .pytest_cache/
 *.egg-info/
 
-# Voximplant service-account key
-voximplant_key.json
 *_key.json
 data/logs/

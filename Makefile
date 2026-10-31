@@ -15,9 +15,6 @@ tick:
 eval:
 	$(PY) -m eval.run_all
 
-webhook:
-	uvicorn webhooks.app:app --port 8000
-
 telegram:
 	$(PY) scripts/telegram_poll.py
 
@@ -27,4 +24,4 @@ live:
 test:
 	$(PY) -m pytest -q
 
-.PHONY: install seed dashboard tick eval test webhook telegram live
+.PHONY: install seed dashboard tick eval test telegram live
