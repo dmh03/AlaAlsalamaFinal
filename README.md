@@ -1,5 +1,7 @@
 # Ala Salama (على السلامة)
 
+**Built for the HUMAIN Hackathon, solving Challenge 3: Automation for Enterprise.**
+
 > متابعتك ما تنتهي عند باب المستشفى — *your care doesn't end at the hospital door.*
 
 **Demo with synthetic data. Not a medical device. All clinical content is demo content and needs clinician review before any real use.**
